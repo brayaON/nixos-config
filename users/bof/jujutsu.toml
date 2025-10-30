@@ -1,6 +1,6 @@
 [user]
-email = "m@mitchellh.com"
-name = "Mitchell Hashimoto"
+email = "bof@example.com"
+name = "Bof User"
 
 [signing]
 backend = "gpg"

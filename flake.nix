@@ -70,7 +70,7 @@
         gh = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.gh;
 
         # Want the latest version of these
-        claude-code = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.claude-code;
+        # claude-code = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.claude-code;
         nushell = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.nushell;
 
         ibus = ibus_stable;
@@ -86,33 +86,33 @@
   in {
     nixosConfigurations.vm-aarch64 = mkSystem "vm-aarch64" {
       system = "aarch64-linux";
-      user   = "mitchellh";
+      user   = "bof";
     };
 
     nixosConfigurations.vm-aarch64-prl = mkSystem "vm-aarch64-prl" rec {
       system = "aarch64-linux";
-      user   = "mitchellh";
+      user   = "bof";
     };
 
     nixosConfigurations.vm-aarch64-utm = mkSystem "vm-aarch64-utm" rec {
       system = "aarch64-linux";
-      user   = "mitchellh";
+      user   = "bof";
     };
 
     nixosConfigurations.vm-intel = mkSystem "vm-intel" rec {
       system = "x86_64-linux";
-      user   = "mitchellh";
+      user   = "bof";
     };
 
     nixosConfigurations.wsl = mkSystem "wsl" {
       system = "x86_64-linux";
-      user   = "mitchellh";
+      user   = "bof";
       wsl    = true;
     };
 
     darwinConfigurations.macbook-pro-m1 = mkSystem "macbook-pro-m1" {
       system = "aarch64-darwin";
-      user   = "mitchellh";
+      user   = "bof";
       darwin = true;
     };
   };

@@ -76,7 +76,7 @@ in {
     pkgs.gopls
     pkgs.zigpkgs."0.14.0"
 
-    pkgs.claude-code
+    # pkgs.claude-code
     pkgs.codex
 
     # Node is required for Copilot.vim
@@ -149,7 +149,7 @@ in {
       whitelist = {
         prefix= [
           "$HOME/code/go/src/github.com/hashicorp"
-          "$HOME/code/go/src/github.com/mitchellh"
+          "$HOME/code/go/src/github.com/bof"
         ];
 
         exact = ["$HOME/.envrc"];
@@ -180,11 +180,10 @@ in {
 
   programs.git = {
     enable = true;
-    userName = "Mitchell Hashimoto";
-    userEmail = "m@mitchellh.com";
+    userName = "Bof User";
+    userEmail = "bof@example.com";
     signing = {
-      key = "523D5DC389D273BC";
-      signByDefault = true;
+      signByDefault = false;
     };
     aliases = {
       cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 -r git branch -d";
@@ -196,7 +195,7 @@ in {
       color.ui = true;
       core.askPass = ""; # needs to be empty to use terminal for ask pass
       credential.helper = "store"; # want to make this more secure
-      github.user = "mitchellh";
+      github.user = "bof";
       push.default = "tracking";
       init.defaultBranch = "main";
     };
@@ -205,7 +204,7 @@ in {
   programs.go = {
     enable = true;
     goPath = "code/go";
-    goPrivate = [ "github.com/mitchellh" "github.com/hashicorp" "rfc822.mx" ];
+    goPrivate = [ "github.com/bof" "github.com/hashicorp" "rfc822.mx" ];
   };
 
   programs.jujutsu = {
