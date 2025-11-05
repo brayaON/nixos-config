@@ -14,12 +14,12 @@ let
     jp = "jj git push";
     js = "jj st";
 
-    tf = "terraform"
-    tfi = "terraform init"
-    tfo = "terraform output"
-    tfws = "terraform workspace select"
-    tfp = "terraform plan"
-    tfa = "terraform apply"
+    tf = "terraform";
+    tfi = "terraform init";
+    tfo = "terraform output";
+    tfws = "terraform workspace select";
+    tfp = "terraform plan";
+    tfa = "terraform apply";
   } // (if isLinux then {
     # Two decades of using a Mac has made this such a strong memory
     # that I'm just going to keep it consistent.
@@ -177,16 +177,16 @@ in {
       signByDefault = false;
     };
     aliases = {
-      st = "status"
-      co = checkout
-      lg = log
-      br = branch
-      ci = commit
-      pl = pull
-      ps = push
-      a = add
-      psf = push --force-with-lease
-      aamend = --all --amend --no-edit
+      st = "status";
+      co = checkout;
+      lg = log;
+      br = branch;
+      ci = commit;
+      pl = pull;
+      ps = push;
+      a = add;
+      psf = push --force-with-lease;
+      aamend = --all --amend --no-edit;
       prettylog = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(r) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
       root = "rev-parse --show-toplevel";
     };
