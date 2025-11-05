@@ -178,15 +178,15 @@ in {
     };
     aliases = {
       st = "status";
-      co = checkout;
-      lg = log;
-      br = branch;
-      ci = commit;
-      pl = pull;
-      ps = push;
-      a = add;
-      psf = push --force-with-lease;
-      aamend = --all --amend --no-edit;
+      co = "checkout";
+      lg = "log";
+      br = "branch";
+      ci = "commit";
+      pl = "pull";
+      ps = "push";
+      a = "add";
+      psf = "push --force-with-lease";
+      aamend = "commit --all --amend --no-edit";
       prettylog = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(r) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
       root = "rev-parse --show-toplevel";
     };
