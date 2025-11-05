@@ -8,21 +8,18 @@ let
   isLinux = pkgs.stdenv.isLinux;
 
   shellAliases = {
-    ga = "git add";
-    gc = "git commit";
-    gco = "git checkout";
-    gcp = "git cherry-pick";
-    gdiff = "git diff";
-    gl = "git prettylog";
-    gp = "git push";
-    gs = "git status";
-    gt = "git tag";
-
     jd = "jj desc";
     jf = "jj git fetch";
     jn = "jj new";
     jp = "jj git push";
     js = "jj st";
+
+    tf = "terraform"
+    tfi = "terraform init"
+    tfo = "terraform output"
+    tfws = "terraform workspace select"
+    tfp = "terraform plan"
+    tfa = "terraform apply"
   } // (if isLinux then {
     # Two decades of using a Mac has made this such a strong memory
     # that I'm just going to keep it consistent.
@@ -58,7 +55,6 @@ in {
   # per-project flakes sourced with direnv and nix-shell, so this is
   # not a huge list.
   home.packages = [
-    pkgs._1password-cli
     pkgs.asciinema
     pkgs.bat
     pkgs.chezmoi
@@ -69,14 +65,12 @@ in {
     pkgs.htop
     pkgs.jq
     pkgs.ripgrep
-    pkgs.sentry-cli
     pkgs.tree
     pkgs.watch
 
     pkgs.gopls
     pkgs.zigpkgs."0.14.0"
 
-    # pkgs.claude-code
     pkgs.codex
 
     # Node is required for Copilot.vim
@@ -87,11 +81,9 @@ in {
     pkgs.tailscale
   ]) ++ (lib.optionals (isLinux && !isWSL) [
     pkgs.chromium
-    pkgs.firefox
     pkgs.rofi
     pkgs.valgrind
     pkgs.zathura
-    pkgs.xfce.xfce4-terminal
   ]);
 
   #---------------------------------------------------------------------
@@ -180,13 +172,22 @@ in {
 
   programs.git = {
     enable = true;
-    userName = "Bof User";
-    userEmail = "bof@example.com";
+    userName = "brayaON";
+    userEmail = "bof.234@gmail.com";
     signing = {
       signByDefault = false;
     };
     aliases = {
-      cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 -r git branch -d";
+      st = "status"
+      co = checkout
+      lg = log
+      br = branch
+      ci = commit
+      pl = pull
+      ps = push
+      a = add
+      psf = push --force-with-lease
+      aamend = --all --amend --no-edit
       prettylog = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(r) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
       root = "rev-parse --show-toplevel";
     };
@@ -195,7 +196,7 @@ in {
       color.ui = true;
       core.askPass = ""; # needs to be empty to use terminal for ask pass
       credential.helper = "store"; # want to make this more secure
-      github.user = "bof";
+      github.user = "brayaON";
       push.default = "tracking";
       init.defaultBranch = "main";
     };
@@ -204,7 +205,7 @@ in {
   programs.go = {
     enable = true;
     goPath = "code/go";
-    goPrivate = [ "github.com/bof" "github.com/hashicorp" "rfc822.mx" ];
+    goPrivate = [ "github.com/brayaON" ];
   };
 
   programs.jujutsu = {

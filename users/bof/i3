@@ -42,6 +42,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # No background
 exec --no-startup-id xsetroot -solid $back
 
+# Ensure we always pick the maximum virtual display resolution
+exec --no-startup-id xrandr-auto
+
 # Keyboard layout settings
 exec --no-startup-id setxkbmap -layout us -variant intl
 
