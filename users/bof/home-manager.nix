@@ -42,8 +42,6 @@ in {
   # Disabled for now since we mismatch our versions. See flake.nix for details.
   home.enableNixpkgsReleaseCheck = false;
 
-  # We manage our own Nushell config via Chezmoi
-  home.shell.enableNushellIntegration = false;
 
   xdg.enable = true;
 
@@ -67,6 +65,7 @@ in {
     pkgs.ripgrep
     pkgs.tree
     pkgs.watch
+    pkgs.ghostty
 
     pkgs.gopls
     pkgs.zigpkgs."0.14.0"
@@ -260,10 +259,6 @@ in {
   };
 
   programs.atuin = {
-    enable = true;
-  };
-
-  programs.nushell = {
     enable = true;
   };
 
