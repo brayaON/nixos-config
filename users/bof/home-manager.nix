@@ -66,6 +66,7 @@ in {
     pkgs.tree
     pkgs.watch
     pkgs.ghostty
+    pkgs.vscode
 
     pkgs.gopls
     pkgs.zigpkgs."0.14.0"
